@@ -1,0 +1,27 @@
+version: "3"
+services:
+
+  webapp:
+    build: ./containers/web
+    ports:
+      - "80:80"
+    volumes:
+      - ./containers/web/source:/var/www/html
+      - saveimg_node_module:/var/www/html/node_modules
+    networks:
+      save_image:
+        aliases:
+          - save_image_web
+
+  transpiller:
+    image: node:slim
+    volumes:
+      - ./containers/web/source:/target:rw
+      - saveimg_node_module:/target/node_modules
+    working_dir: /target
+
+networks:
+  save_image:
+
+volumes:
+  saveimg_node_module:

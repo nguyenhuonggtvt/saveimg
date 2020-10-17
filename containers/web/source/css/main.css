@@ -1,0 +1,16 @@
+#txtLinkImg {
+    outline: none;
+}
+
+#box-form {
+    background: #c7def780;
+    border-radius: 3px;
+}
+
+.item-image {
+    background-color: #f3f3f3;
+}
+
+.item-image img {
+    max-width: 100%;
+}
